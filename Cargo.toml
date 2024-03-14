@@ -1,0 +1,26 @@
+[package]
+name = "devinfo"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "safe access to libdevinfo (device information library)"
+keywords = ["libdevinfo", "illumos", "devinfo"]
+repository = "https://github.com/illumos/devinfo-rs"
+
+[features]
+default = []
+#
+# To enable the use of Private (unstable) interfaces, use the "private"
+# feature:
+#
+private = ["libdevinfo-sys/private"]
+
+[[example]]
+name = "translate"
+required-features = ["private"]
+
+[dependencies]
+anyhow = "1"
+libc = "0.2"
+libdevinfo-sys = "1.1"
+num_enum = "0.7"
